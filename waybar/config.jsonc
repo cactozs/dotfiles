@@ -1,0 +1,85 @@
+{
+"layer": "top",
+"position": "top",
+"height": 32,
+"spacing": 6,
+
+
+"modules-left": [
+    "niri/workspaces",
+    "niri/window"
+],
+
+"modules-center": [
+    "custom/layout",
+    "clock"
+],
+
+"modules-right": [
+    "backlight",
+    "memory",
+    "pulseaudio",
+    "battery",
+    "custom/power"
+],
+
+"clock": {
+    "format": "󰥔 {:%H:%M}"
+},
+
+"custom/layout": {
+    "exec": "niri msg keyboard-layouts | grep '\\*' | awk '{print $3}'",
+    "interval": 1,
+    "format": "󰌌 {}"
+},
+
+"backlight": {
+    "format": "󰃟 {percent}%"
+},
+
+"memory": {
+    "format": "󰘚 {}%"
+},
+
+"pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰖁",
+    "format-icons": {
+        "default": [
+            "󰕿",
+            "󰖀",
+            "󰕾"
+        ]
+    }
+},
+
+"battery": {
+    "states": {
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-icons": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+    ]
+},
+
+"custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "wlogout",
+    "spacing": 100
+}
+
+
+}

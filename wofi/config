@@ -1,0 +1,16 @@
+# Основные настройки
+width=650
+height=500
+location=center
+anchor=center
+show=drun
+prompt=Поиск...
+allow_images=true
+image_size=28
+insensitive=true
+no_actions=true
+term=kitty          # или твой терминал
+
+# Поведение
+key_expand=Tab
+hide_scroll=true
