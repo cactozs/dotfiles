@@ -7,8 +7,9 @@
 | Niri | WM |
 | Waybar | Bar on the top |
 | Wofi | App launcher |
-| Zen-browser | Browser |
-| Vim | Code-editor |
+| SwayNC | Notification Center |
+| LibreWolf | Browser |
+| NeoVim | Code-editor |
 | Alacritty | Terminal |
 | Bash | Shell |
 | cliphist, wl-clipboard | for clipboard |
