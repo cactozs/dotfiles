@@ -18,6 +18,11 @@ window#waybar {
     padding: 0 8px;
 }
 
+#workspaces button:hover {
+    color: #999999;
+    background: #333333;
+}
+
 #workspaces button.active {
     color: #ffffff;
     background: #222222;
@@ -33,7 +38,7 @@ window#waybar {
     margin: 4px;
     padding: 0 10px;
     background: #111111;
-    border-radius: 8px;
+    border-radius: 0px;
 }
 #language {
   min-width: 12px;
