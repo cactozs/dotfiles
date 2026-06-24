@@ -30,6 +30,9 @@
   # Set your time zone.
   time.timeZone = "Europe/Tallinn";
 
+  #services.xserver.videoDrivers = [ "nvidia" ];
+  #hardware.nvidia.modesetting.enable = true;
+
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
@@ -74,14 +77,13 @@
     wofi
     swaynotificationcenter
     awww
-    vim
+    neovim
     git
     wget
     curl
     unzip
     wl-clipboard
     cliphist
-    wtype
     brightnessctl
     playerctl
     pavucontrol
@@ -92,6 +94,14 @@
     font-awesome
     prismlauncher
     libreoffice-fresh
+    xwayland
+    xwayland-satellite
+    signal-desktop
+    thunderbird
+    librewolf
+    nautilus
+    obsidian
+    docker
   ];
 
   fonts.packages = with pkgs; [
@@ -99,7 +109,23 @@
     font-awesome
   ];
 
+  programs.nix-ld.enable = true;
+
+  hardware.nvidia = { modesetting.enable = true; };
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  };
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
   services.displayManager.ly.enable = true;
+
+  services.udisks2.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -113,6 +139,7 @@
       }
     ];
   };
+  security.sudo.enable = false;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
