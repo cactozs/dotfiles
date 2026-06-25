@@ -1,86 +1,93 @@
 {
-"layer": "top",
-"position": "top",
-"height": 32,
-"spacing": 6,
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 6,
 
+    "modules-left": [
+        "niri/workspaces",
+        "niri/window"
+    ],
 
-"modules-left": [
-    "niri/workspaces",
-    "niri/window"
-],
+    "modules-center": [
+        "custom/layout",
+        "clock#date",
+        "custom/time"
+    ],
 
-"modules-center": [
-    "custom/layout",
-    "clock"
-],
+    "modules-right": [
+        "backlight",
+        "memory",
+        "pulseaudio",
+        "battery",
+        "custom/power"
+    ],
 
-"modules-right": [
-    "backlight",
-    "memory",
-    "pulseaudio",
-    "battery",
-    "custom/power"
-],
+    "clock#date": {
+        "format": "{:%a, %d %B}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 3600
+    },
 
-"clock": {
-    "format": "󰥔 {:%H:%M}"
-},
+    "custom/time": {
+        "exec": "$HOME/.config/waybar/scripts/waybar-time-weather.sh",
+        "interval": 60,
+        "return-type": "json",
+        "format": "{}"
+    },
 
-"custom/layout": {
-    "exec": "niri msg keyboard-layouts | grep '\\*' | awk '{print $3}'",
-    "interval": 1,
-    "format": "󰌌 {}"
-},
+    "custom/layout": {
+        "exec": "niri msg keyboard-layouts | grep '\\*' | awk '{print $3}'",
+        "interval": 1,
+        "format": "󰌌 {}"
+    },
 
-"backlight": {
-    "format": "󰃟 {percent}%"
-},
+    "backlight": {
+        "format": "󰃟 {percent}%"
+    },
 
-"memory": {
-    "format": "󰘚 {}%"
-},
+    "memory": {
+        "format": "󰘚 {}%"
+    },
 
-"pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "󰖁",
-    "format-icons": {
-        "default": [
-            "󰕿",
-            "󰖀",
-            "󰕾"
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁",
+        "format-icons": {
+            "default": [
+                "󰕿",
+                "󰖀",
+                "󰕾"
+            ]
+        },
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-icons": [
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
         ]
     },
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-},
 
-"battery": {
-    "states": {
-        "warning": 30,
-        "critical": 15
-    },
-    "format": "{icon} {capacity}%",
-    "format-charging": "󰂄 {capacity}%",
-    "format-icons": [
-        "󰁺",
-        "󰁻",
-        "󰁼",
-        "󰁽",
-        "󰁾",
-        "󰁿",
-        "󰂀",
-        "󰂁",
-        "󰂂",
-        "󰁹"
-    ]
-},
-
-"custom/power": {
-    "format": "󰐥",
-    "tooltip": false,
-    "on-click": "wlogout",
-    "spacing": 100
-}
-
-
+    "custom/power": {
+        "format": "󰐥",
+        "tooltip": false,
+        "on-click": "wlogout",
+        "spacing": 100
+    }
 }
