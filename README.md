@@ -8,7 +8,7 @@
 | Waybar | Bar on the top |
 | Wofi | App launcher |
 | SwayNC | Notification Center |
-| LibreWolf | Browser |
+| Mullvad | Browser |
 | NeoVim | Code-editor |
 | Alacritty | Terminal |
 | Bash | Shell |
