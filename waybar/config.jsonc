@@ -10,8 +10,8 @@
     ],
 
     "modules-center": [
-        "custom/layout",
-        "clock#date",
+	"custom/layout",
+        "clock#date", 
         "custom/time"
     ],
 
