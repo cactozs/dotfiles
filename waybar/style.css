@@ -1,3 +1,5 @@
+@import "colors.css";
+
 * {
     border: none;
     border-radius: 0;
@@ -7,25 +9,25 @@
 }
 
 window#waybar {
-    background: rgba(0, 0, 0, 0.85);
-    color: #ffffff;
+    background: @bg;
+    color: @fg;
     padding: 0px;
     margin: 0px;
 }
 
 #workspaces button {
-    color: #888888;
+    color: @ws-inactive;
     padding: 0 8px;
 }
 
 #workspaces button:hover {
-    color: #999999;
-    background: #333333;
+    color: @ws-hover-fg;
+    background: @ws-hover-bg;
 }
 
 #workspaces button.active {
-    color: #ffffff;
-    background: #222222;
+    color: @ws-active-fg;
+    background: @ws-active-bg;
 }
 
 #clock,
@@ -34,10 +36,12 @@ window#waybar {
 #network,
 #pulseaudio,
 #battery,
-#tray {
+#tray,
+#custom-theme,
+#custom-power {
     margin: 4px;
     padding: 0 10px;
-    background: #111111;
+    background: @module-bg;
     border-radius: 0px;
 }
 #language {
@@ -47,6 +51,7 @@ window#waybar {
 #workspaces,
 #custom-layout,
 #backlight,
+#custom-theme,
 #custom-power {
     margin-right: 16px;
 }

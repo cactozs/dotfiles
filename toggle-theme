@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+
+THEME_FILE="$HOME/.config/theme-current"
+
+if [ -f "$THEME_FILE" ]; then
+    CURRENT=$(cat "$THEME_FILE")
+else
+    CURRENT="dark"
+fi
+
+if [ "$CURRENT" == "light" ]; then
+    echo "Switching to DARK theme..."
+
+    # Alacritty
+    [ -d ~/.config/alacritty ] && ln -sf dark.toml ~/.config/alacritty/theme.toml && touch ~/.config/alacritty/alacritty.toml 2>/dev/null
+
+    # Waybar - hard restart needed (signal reload unreliable in some builds)
+    if [ -d ~/.config/waybar ]; then
+        ln -sf ~/.config/waybar/colors-dark.css ~/.config/waybar/colors.css
+        pkill waybar 2>/dev/null
+        sleep 0.3
+        waybar >/dev/null 2>&1 &
+    fi
+
+    # Wofi
+    [ -d ~/.config/wofi ] && ln -sf style-dark.css ~/.config/wofi/style.css
+
+    # SwayNC
+    if [ -d ~/.config/swaync ]; then
+        ln -sf style-dark.css ~/.config/swaync/style.css
+        pkill swaync 2>/dev/null; sleep 0.3; /run/current-system/sw/bin/swaync &>/dev/null &
+    fi
+
+    # GTK
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' 2>/dev/null
+
+    echo "dark" > "$THEME_FILE"
+    notify-send "Theme Switched" "Dark mode activated" -i weather-clear-night 2>/dev/null
+else
+    echo "Switching to LIGHT theme..."
+
+    # Alacritty
+    [ -d ~/.config/alacritty ] && ln -sf light.toml ~/.config/alacritty/theme.toml && touch ~/.config/alacritty/alacritty.toml 2>/dev/null
+
+    # Waybar - hard restart needed
+    if [ -d ~/.config/waybar ]; then
+        ln -sf ~/.config/waybar/colors-light.css ~/.config/waybar/colors.css
+        pkill waybar 2>/dev/null
+        sleep 0.3
+        waybar >/dev/null 2>&1 &
+    fi
+
+    # Wofi
+    [ -d ~/.config/wofi ] && ln -sf style-light.css ~/.config/wofi/style.css
+
+    # SwayNC
+    if [ -d ~/.config/swaync ]; then
+        ln -sf style-light.css ~/.config/swaync/style.css
+        pkill swaync 2>/dev/null; sleep 0.3; /run/current-system/sw/bin/swaync &>/dev/null &
+    fi
+
+    # GTK
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light' 2>/dev/null
+
+    echo "light" > "$THEME_FILE"
+    notify-send "Theme Switched" "Light mode activated" -i weather-clear 2>/dev/null
+fi

@@ -20,6 +20,7 @@
         "memory",
         "pulseaudio",
         "battery",
+        "custom/theme",
         "custom/power"
     ],
 
@@ -87,7 +88,12 @@
     "custom/power": {
         "format": "󰐥",
         "tooltip": false,
-        "on-click": "wlogout",
-        "spacing": 100
+        "on-click": "wlogout"
+    },
+
+    "custom/theme": {
+        "format": "󰔎",
+        "tooltip": false,
+        "on-click": "toggle-theme"
     }
 }
