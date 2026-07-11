@@ -107,7 +107,6 @@
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
     bat
     zed-editor
-    lmstudio
   ]; 
 
   fonts.packages = with pkgs; [
