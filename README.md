@@ -8,8 +8,8 @@
 | Waybar | Bar on the top |
 | Wofi | App launcher |
 | SwayNC | Notification Center |
-| Mullvad | Browser |
-| NeoVim | Code-editor |
+| Helium | Browser |
+| Helix + Zed | Code-editor |
 | Alacritty | Terminal |
 | Bash | Shell |
 | cliphist, wl-clipboard | for clipboard |
