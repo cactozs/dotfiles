@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -55,7 +55,7 @@
   users.users."cactoz" = {
     isNormalUser = true;
     description = "cactoz";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
 
@@ -74,7 +74,7 @@
     wofi
     swaynotificationcenter
     awww
-    neovim
+    zed
     git
     wget
     curl
@@ -91,12 +91,23 @@
     nerd-fonts.jetbrains-mono
     font-awesome
     prismlauncher
-    libreoffice-fresh
+    # libreoffice-fresh
     signal-desktop
     obsidian
     xwayland
     xwayland-satellite
     mullvad-browser
+    zellij
+    proton-vpn
+    proton-vpn-cli
+    yazi
+    imv
+    helix
+    keepassxc
+    inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
+    bat
+    zed-editor
+    lmstudio
   ]; 
 
   fonts.packages = with pkgs; [
@@ -105,6 +116,10 @@
   ];
 
   services.displayManager.ly.enable = true;
+  
+  programs.nix-ld.enable = true; 
+
+  virtualisation.docker.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -118,7 +133,7 @@
       }
     ];
   };
-  security.sudo.enable = false;
+  security.sudo.enable = false; 
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
