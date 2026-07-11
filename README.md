@@ -1,16 +1,30 @@
-# Dot files
+# • cactoz's dotfiles
 
-## Programs/packages
+> Personal configuration files for my NixOS setup
+
+![Terminal](assets/terminal.png)
+
+## • Programs
+
 | Name | Task |
 | --- | --- |
 | NixOS | OS |
-| Niri | WM |
-| Waybar | Bar on the top |
-| Wofi | App launcher |
+| Niri | Window Manager |
+| Waybar | Top Bar |
+| Wofi | App Launcher |
 | SwayNC | Notification Center |
 | Helium | Browser |
-| Helix + Zed | Code-editor |
+| Helix + Zed | Code Editor |
 | Alacritty | Terminal |
 | Bash | Shell |
-| cliphist, wl-clipboard | for clipboard |
-| --- | --- |
+| cliphist, wl-clipboard | Clipboard Management |
+
+## • Previews
+
+### Terminal
+
+![Terminal](assets/terminal2.png)
+
+### Wofi
+
+![Wofi](assets/wofi.png)
