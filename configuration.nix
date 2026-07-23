@@ -103,10 +103,12 @@
     yazi
     imv
     helix
-    keepassxc
+    # keepassxc
     inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
-    bat
+    # bat
     zed-editor
+    simplex-chat-desktop
+    nautilus
   ]; 
 
   fonts.packages = with pkgs; [
