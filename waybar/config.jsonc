@@ -10,7 +10,7 @@
     ],
 
     "modules-center": [
-	"custom/layout",
+	      "niri/language",
         "clock#date", 
         "custom/time"
     ],
@@ -36,10 +36,10 @@
         "format": "{}"
     },
 
-    "custom/layout": {
-        "exec": "niri msg keyboard-layouts | grep '\\*' | awk '{print $3}'",
-        "interval": 1,
-        "format": "󰌌 {}"
+    "niri/language": {
+        "format": "󰌌 {}",
+        "format-en": "EN",
+        "format-ru": "RU",
     },
 
     "backlight": {
