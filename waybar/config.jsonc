@@ -38,8 +38,8 @@
 
     "niri/language": {
         "format": "󰌌 {}",
-        "format-en": "EN",
-        "format-ru": "RU",
+        "format-en": "us",
+        "format-ru": "ru",
     },
 
     "backlight": {
