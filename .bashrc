@@ -24,3 +24,5 @@ parse_git() {
 
 PS1="${GREEN} \u${RESET}@${CYAN}\h${RESET}:${BLUE}\w${RESET}\$(parse_git) ${YELLOW}\A${RESET} \$ "
 PROMPT_COMMAND='printf "\n"'
+
+export PATH="$HOME/.local/bin:$PATH"
