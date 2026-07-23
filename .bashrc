@@ -22,5 +22,5 @@ parse_git() {
     fi
 }
 
-PS1="${GREEN}\u${RESET}@${CYAN}\h${RESET}:${BLUE}\w${RESET}\$(parse_git) ${YELLOW}\A${RESET} \$ "
+PS1="${GREEN} \u${RESET}@${CYAN}\h${RESET}:${BLUE}\w${RESET}\$(parse_git) ${YELLOW}\A${RESET} \$ "
 PROMPT_COMMAND='printf "\n"'
