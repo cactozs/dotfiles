@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-TIME=$(date '+%H:%M')
+TIME=$(date '+%I:%M')
 
 LOCATION_FILE="$HOME/.config/waybar/location"
 LOCATION=""
