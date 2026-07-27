@@ -1,6 +1,6 @@
-alias nix-conf="HOME=$HOME doas hx /etc/nixos/configuration.nix"
+alias nix-conf="doas hx /etc/nixos/configuration.nix"
 
-# Цвета
+# Colors
 RESET='\[\e[0m\]'
 BOLD='\[\e[1m\]'
 RED='\[\e[31m\]'
