@@ -264,6 +264,7 @@ spawn-at-startup "waybar"
 spawn-at-startup "awww-daemon"
 spawn-at-startup "sh" "-c" "wl-paste --type text --watch cliphist store"
 spawn-at-startup "sh" "-c" "wl-paste --type image --watch cliphist store"
+spawn-at-startup "swayidle -w timeout 300 'hyprlock' timeout 450 'niri msg action power-off-monitors' before-sleep 'hyprlock'"
 
 // To run a shell command (with variables, pipes, etc.), use spawn-sh-at-startup:
 // spawn-sh-at-startup "qs -c ~/source/qs/MyAwesomeShell"
@@ -352,13 +353,13 @@ window-rule {
     clip-to-geometry true
 }
 
-/-window-rule {
-    match app-id="helium"
+window-rule {
     open-maximized-to-edges true
 }
 
 window-rule {
-    open-maximized-to-edges true
+    match app-id="Alacritty"
+    open-maximized-to-edges false
 }
 
 binds {
@@ -382,6 +383,7 @@ binds {
     Mod+V hotkey-overlay-title="Cliphist" { spawn "sh" "-c" "cliphist list | wofi --dmenu | cliphist decode | wl-copy"; }
     Mod+Alt+V hotkey-overlay-title="Wipe Cliphist" { spawn "cliphist" "wipe"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Mod+P hotkey-overlay-title="Toggle Waybar" { spawn-sh "pkill -SIGUSR1 waybar"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument. It's passed verbatim to `sh -c`.
