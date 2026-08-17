@@ -51,6 +51,10 @@
     variant = "";
   };
 
+  services.tailscale.enable = true;
+
+  networking.firewall.trustedInterfaces = [ "tailscale0" ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users."cactoz" = {
     isNormalUser = true;
@@ -62,9 +66,33 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+  };
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    open = false;  # временно отключаем
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
+  };
+
+  boot.kernelParams = [
+    "nvidia.NVreg_EnableGpuFirmware=0"
+  ];
+
+  # Отключаем Threaded Optimization
+  environment.sessionVariables = {
+    __GL_THREADED_OPTIMIZATIONS = "0";
+  };
+  
   programs.niri.enable = true;
 
-  # List packages installed in system profile. To search, run:
+    # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -96,7 +124,7 @@
     obsidian
     xwayland
     xwayland-satellite
-    mullvad-browser
+    # mullvad-browser
     zellij
     proton-vpn
     proton-vpn-cli
@@ -104,11 +132,18 @@
     imv
     helix
     # keepassxc
-    inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
+    # inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
     # bat
     zed-editor
     simplex-chat-desktop
     nautilus
+    nodejs
+    python3
+    uv
+    python3Packages.pip
+    firefox
+    hyprlock
+    swayidle
   ]; 
 
   fonts.packages = with pkgs; [
@@ -116,7 +151,7 @@
     font-awesome
   ];
 
-  services.displayManager.ly.enable = true;
+  services.displayManager.ly.enable = true;  
   
   programs.nix-ld.enable = true; 
 
@@ -124,6 +159,13 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  programs.localsend = {
+    enable = true;
+    openFirewall = true;  # уже по умолчанию true
+  };
+
+
+  
   security.doas = {
     enable = true;
     extraRules = [
