@@ -285,7 +285,7 @@ prefer-no-csd
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
 // The path is formatted with strftime(3) to give you the screenshot date and time.
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/%Y.%m.%d-%H:%M:%S.png"
 
 // You can also set this to null to disable saving screenshots to disk.
 // screenshot-path null
@@ -298,12 +298,12 @@ animations {
     // off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    slowdown 0.6
+    slowdown 0.3
 }
 
 cursor {
-    xcursor-theme "Adwaita"
-    xcursor-size 16
+    xcursor-theme "breeze_cursors"
+    xcursor-size 21
     hide-after-inactive-ms 6000
 }
 
