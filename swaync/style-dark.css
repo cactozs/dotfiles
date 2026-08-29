@@ -5,17 +5,17 @@
 
 /* --- Variables --- */
 :root {
-  --cc-bg: #1a1a1a;
-  --noti-bg: #2a2a2a;
-  --noti-bg-darker: #222222;
-  --noti-bg-hover: #3a3a3a;
-  --noti-bg-focus: #333333;
-  --noti-border-color: #444444;
-  --noti-close-bg: #333333;
-  --noti-close-bg-hover: #555555;
-  --text-color: #e0e0e0;
-  --text-color-disabled: #666666;
-  --bg-selected: #3b82f6;
+  --cc-bg: #282828;
+  --noti-bg: #3c3836;
+  --noti-bg-darker: #32302f;
+  --noti-bg-hover: #504945;
+  --noti-bg-focus: #504945;
+  --noti-border-color: #504945;
+  --noti-close-bg: #504945;
+  --noti-close-bg-hover: #665c54;
+  --text-color: #ebdbb2;
+  --text-color-disabled: #928374;
+  --bg-selected: #458588;
   --border: 1px solid var(--noti-border-color);
   --border-radius: 0px;
   --notification-shadow: none;
@@ -327,8 +327,8 @@ blankwindow {
 
 /* MPRIS Widget */
 :root {
-  --mpris-album-art-overlay: rgba(0, 0, 0, 0.6);
-  --mpris-button-hover: rgba(255, 255, 255, 0.1);
+  --mpris-album-art-overlay: rgba(40, 40, 40, 0.6);
+  --mpris-button-hover: rgba(235, 219, 178, 0.1);
   --mpris-album-art-icon-size: 80px;
   --mpris-album-art-shadow: none;
 }
@@ -392,7 +392,7 @@ blankwindow {
 
 .widget-buttons-grid flowboxchild > button.toggle:checked {
   background: var(--bg-selected);
-  color: #ffffff;
+  color: #ebdbb2;
 }
 
 /* Menubar Widget */

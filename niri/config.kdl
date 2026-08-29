@@ -159,13 +159,13 @@ layout {
         // - CSS-like notation: "rgb(255, 127, 0)", rgba(), hsl() and a few others.
 
         // Color of the ring on the active monitor.
-        active-color "#7fc8ff"
+        active-color "#83a598"
 
         // Color of the ring on inactive monitors.
         //
         // The focus ring only draws around the active window, so the only place
         // where you can see its inactive-color is on other monitors.
-        inactive-color "#505050"
+        inactive-color "#665c54"
 
         // You can also use gradients. They take precedence over solid colors.
         // Gradients are rendered the same as CSS linear-gradient(angle, from, to).
@@ -190,11 +190,11 @@ layout {
         off
 
         width 2
-        active-color "#ffc87f"
-        inactive-color "#505050"
+        active-color "#fabd2f"
+        inactive-color "#665c54"
 
         // Color of the border around windows that request your attention.
-        urgent-color "#9b0000"
+        urgent-color "#fb4934"
 
         // Gradients can use a few different interpolation color spaces.
         // For example, this is a pastel rainbow gradient via in="oklch longer hue".
@@ -382,7 +382,7 @@ binds {
     Mod+A repeat=false hotkey-overlay-title="Run an Application: wofi" { spawn "wofi" "--show" "drun"; }
     Mod+V hotkey-overlay-title="Cliphist" { spawn "sh" "-c" "cliphist list | wofi --dmenu | cliphist decode | wl-copy"; }
     Mod+Alt+V hotkey-overlay-title="Wipe Cliphist" { spawn "cliphist" "wipe"; }
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
+    Super+Alt+L hotkey-overlay-title="Lock the Screen: hyprlock" { spawn "hyprlock"; }
     Mod+P hotkey-overlay-title="Toggle Waybar" { spawn-sh "pkill -SIGUSR1 waybar"; }
 
     // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.

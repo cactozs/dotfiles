@@ -1,9 +1,9 @@
-@define-color bg              rgba(0, 0, 0, 0.85);
-@define-color fg              #ffffff;
-@define-color ws-active-bg    #222222;
-@define-color ws-active-fg    #ffffff;
-@define-color ws-hover-bg     #333333;
-@define-color ws-hover-fg     #999999;
-@define-color ws-inactive     #888888;
-@define-color module-bg       #111111;
-@define-color border-color    #333333;
+@define-color bg              rgba(40, 40, 40, 0.85);
+@define-color fg              #ebdbb2;
+@define-color ws-active-bg    #458588;
+@define-color ws-active-fg    #ebdbb2;
+@define-color ws-hover-bg     #504945;
+@define-color ws-hover-fg     #d5c4a1;
+@define-color ws-inactive     #928374;
+@define-color module-bg       #3c3836;
+@define-color border-color    #504945;

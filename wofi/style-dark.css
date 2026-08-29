@@ -1,4 +1,4 @@
-/* === Wofi — Монохромный стиль (без закруглений) === */
+/* === Wofi — Gruvbox dark === */
 
 * {
     font-family: "JetBrainsMono Nerd Font";
@@ -7,24 +7,24 @@
 
 /* Главное окно */
 window {
-    background-color: #111111;
-    border: 2px solid #333333;
-    border-radius: 0px;        /* убрал закругление */
+    background-color: #282828;
+    border: 2px solid #504945;
+    border-radius: 0px;
     padding: 6px;
 }
 
 /* Поле поиска */
 #input {
-    background-color: #1a1a1a;
-    color: #eeeeee;
-    border: 2px solid #444444;
+    background-color: #3c3836;
+    color: #ebdbb2;
+    border: 2px solid #504945;
     border-radius: 0px;
     padding: 12px 16px;
     margin: 6px;
 }
 
 #input:focus {
-    border-color: #888888;
+    border-color: #83a598;
 }
 
 /* Список */
@@ -42,7 +42,7 @@ window {
 /* Элемент списка */
 #entry {
     background-color: transparent;
-    color: #cccccc;
+    color: #d5c4a1;
     border-radius: 0px;
     padding: 10px 14px;
     margin: 1px 4px;
@@ -50,12 +50,12 @@ window {
 }
 
 #entry:selected {
-    background-color: #333333;
-    color: #ffffff;
+    background-color: #504945;
+    color: #ebdbb2;
 }
 
 #entry:hover {
-    background-color: #222222;
+    background-color: #3c3836;
 }
 
 /* Иконка */
