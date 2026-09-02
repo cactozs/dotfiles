@@ -51,12 +51,14 @@ if command -v nvidia-smi >/dev/null 2>&1; then
 fi
 
 # RAM
-read -r _ total used free shared buff_cache available _ < <(free -b)
+mem_total=$(awk '/^MemTotal:/ {print $2}' /proc/meminfo)
+mem_available=$(awk '/^MemAvailable:/ {print $2}' /proc/meminfo)
 
-ram_usage=$((100 * (total - available) / total))
+mem_used=$((mem_total - mem_available))
+ram_usage=$((100 * mem_used / mem_total))
 
-ram_used=$(numfmt --format="%.1f GiB" "$((total - available))")
-ram_total=$(numfmt --format="%.1f GiB" "$total")
+ram_used=$(awk "BEGIN {printf \"%.1f GiB\", $mem_used / 1024 / 1024}")
+ram_total=$(awk "BEGIN {printf \"%.1f GiB\", $mem_total / 1024 / 1024}")
 
 # Network
 rx1=$(awk 'NR>2 {sum += $2} END {print sum+0}' /proc/net/dev)
