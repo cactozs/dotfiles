@@ -3,21 +3,28 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: JetBrainsMono Nerd Font;
-    font-size: 14px;
     min-height: 0;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
 }
 
 window#waybar {
     background: @bg;
     color: @fg;
-    padding: 0px;
-    margin: 0px;
+}
+
+/* Workspaces */
+
+#workspaces {
+    margin-left: 6px;
 }
 
 #workspaces button {
     color: @ws-inactive;
-    padding: 0 8px;
+    padding: 0 10px;
+    margin: 0;
+    background: transparent;
+    transition: color 150ms ease, background 150ms ease;
 }
 
 #workspaces button:hover {
@@ -30,28 +37,89 @@ window#waybar {
     background: @ws-active-bg;
 }
 
-#clock,
-#cpu,
-#memory,
-#network,
-#pulseaudio,
-#battery,
-#tray,
-#custom-theme,
-#custom-power {
-    margin: 4px;
+/* Window */
+
+#window {
+    margin-left: 12px;
+    color: @fg;
+    opacity: 0.65;
+}
+
+/* Center */
+
+#language,
+#custom-time {
+    margin: 0;
     padding: 0 10px;
-    background: @module-bg;
-    border-radius: 0px;
+    background: transparent;
 }
+
 #language {
-  min-width: 12px;
-  margin: 0 7.5px;
+    padding-left: 9px;
+    padding-right: 9px;
 }
-#workspaces,
-#custom-layout,
+
+#clock {
+    margin: 3px 2px;
+    padding: 0 11px;
+    background: @module-bg;
+    font-weight: 600;
+}
+
+/* System */
+
 #backlight,
-#custom-theme,
+#custom-system,
+#pulseaudio,
+#battery {
+    margin: 0;
+    padding: 0 9px;
+    background: transparent;
+}
+
+#backlight:hover,
+#custom-system:hover,
+#pulseaudio:hover,
+#battery:hover {
+    background: @ws-hover-bg;
+}
+
+/* Battery states */
+
+#battery.warning {
+    color: @yellow;
+}
+
+#battery.critical:not(.charging) {
+    color: @red;
+}
+
+#battery.charging {
+    color: @green;
+}
+
+/* Power */
+
 #custom-power {
-    margin-right: 16px;
+    margin: 3px 6px 3px 3px;
+    padding: 0 12px;
+    background: @module-bg;
+}
+
+#custom-power:hover {
+    background: @red;
+    color: @bg;
+}
+
+/* Tooltips */
+
+tooltip {
+    background: @bg;
+    border: 1px solid @module-bg;
+    border-radius: 0;
+}
+
+tooltip label {
+    color: @fg;
+    padding: 5px;
 }

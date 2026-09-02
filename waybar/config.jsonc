@@ -1,8 +1,8 @@
 {
     "layer": "top",
     "position": "top",
-    "height": 32,
-    "spacing": 6,
+    "height": 34,
+    "spacing": 0,
 
     "modules-left": [
         "niri/workspaces",
@@ -10,21 +10,21 @@
     ],
 
     "modules-center": [
-	      "niri/language",
-        "clock#date", 
+        "niri/language",
+        "clock#date",
         "custom/time"
     ],
 
     "modules-right": [
         "backlight",
-        "memory",
+        "custom/system",
         "pulseaudio",
         "battery",
         "custom/power"
     ],
 
     "clock#date": {
-        "format": "{:%a, %d %B}",
+        "format": "{:%a, %d %b}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "interval": 3600
     },
@@ -33,26 +33,60 @@
         "exec": "$HOME/.config/waybar/scripts/waybar-time-weather.sh",
         "interval": 60,
         "return-type": "json",
-        "format": "{}"
+        "format": "{}",
+        "tooltip": true
     },
 
     "niri/language": {
         "format": "󰌌 {}",
         "format-en": "us",
-        "format-ru": "ru",
+        "format-ru": "ru"
+    },
+
+    "niri/workspaces": {
+        "format": "{icon}",
+        "format-empty": " ",
+        "empty-format": " ",
+        "tooltip-format": "{name}",
+        "on-click-activate": false,
+        "on-click-middle": false,
+        "hide-empty-workspaces": true,
+        "scroll-wrap": true
+    },
+
+    "niri/window": {
+        "max-length": 45,
+        "icon": true,
+        "icon-size": 13,
+        "expand-on-click": false,
+        "format": "{title}",
+        "tooltip-format": "{title}",
+        "rewrite": {
+            "Firefox": "Firefox",
+            "^(.*?)( - .*)$": "$1"
+        }
     },
 
     "backlight": {
-        "format": "󰃟 {percent}%"
+        "format": "󰃟 {percent}%",
+        "tooltip-format": "Brightness: {percent}%",
+        "on-click": "brightnessctl set 5%-",
+        "on-click-middle": "brightnessctl set 5%+",
+        "scroll-up": "brightnessctl set 5%+",
+        "scroll-down": "brightnessctl set 5%-"
     },
 
-    "memory": {
-        "format": "󰘚 {}%"
+    "custom/system": {
+        "exec": "$HOME/.config/waybar/scripts/waybar-system.sh",
+        "interval": 2,
+        "return-type": "json",
+        "format": "{}",
+        "tooltip": true
     },
 
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": "󰖁",
+        "format-muted": "󰖁 muted",
         "format-icons": {
             "default": [
                 "󰕿",
@@ -60,7 +94,10 @@
                 "󰕾"
             ]
         },
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        "tooltip-format": "{desc}\nVolume: {volume}%",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-up": "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+",
+        "scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
     },
 
     "battery": {
@@ -70,6 +107,8 @@
         },
         "format": "{icon} {capacity}%",
         "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-full": "󰂅 {capacity}%",
         "format-icons": [
             "󰁺",
             "󰁻",
@@ -88,11 +127,5 @@
         "format": "󰐥",
         "tooltip": false,
         "on-click": "wlogout"
-    },
-
-    "custom/theme": {
-        "format": "󰔎",
-        "tooltip": false,
-        "on-click": "toggle-theme"
     }
 }
