@@ -13,6 +13,24 @@ window#waybar {
     color: @fg;
 }
 
+/* Smooth transitions */
+
+#workspaces button,
+#backlight,
+#custom-system,
+#pulseaudio,
+#battery,
+#custom-power,
+#window,
+#clock,
+#language,
+#custom-time {
+    transition:
+        color 150ms ease,
+        background 150ms ease,
+        opacity 150ms ease;
+}
+
 /* Workspaces */
 
 #workspaces {
@@ -21,15 +39,14 @@ window#waybar {
 
 #workspaces button {
     color: @ws-inactive;
-    padding: 0 10px;
+    padding: 0 8px;
     margin: 0;
     background: transparent;
-    transition: color 150ms ease, background 150ms ease;
 }
 
 #workspaces button:hover {
     color: @ws-hover-fg;
-    background: @ws-hover-bg;
+    background: transparent;
 }
 
 #workspaces button.active {
@@ -40,9 +57,13 @@ window#waybar {
 /* Window */
 
 #window {
-    margin-left: 12px;
+    margin-left: 14px;
     color: @fg;
-    opacity: 0.65;
+    opacity: 0.55;
+}
+
+#window:hover {
+    opacity: 1;
 }
 
 /* Center */
@@ -60,8 +81,8 @@ window#waybar {
 }
 
 #clock {
-    margin: 3px 2px;
-    padding: 0 11px;
+    margin: 3px 3px;
+    padding: 0 14px;
     background: @module-bg;
     font-weight: 600;
 }
@@ -81,7 +102,8 @@ window#waybar {
 #custom-system:hover,
 #pulseaudio:hover,
 #battery:hover {
-    background: @ws-hover-bg;
+    color: @ws-hover-fg;
+    background: transparent;
 }
 
 /* Battery states */
@@ -104,11 +126,14 @@ window#waybar {
     margin: 3px 6px 3px 3px;
     padding: 0 12px;
     background: @module-bg;
+    color: @fg;
+    opacity: 1;
 }
 
 #custom-power:hover {
-    background: @red;
-    color: @bg;
+    background: @ws-hover-bg;
+    color: @fg;
+    opacity: 1;
 }
 
 /* Tooltips */
